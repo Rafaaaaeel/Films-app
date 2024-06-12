@@ -1,8 +1,8 @@
 import 'package:article_app/src/features/movies/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
-  MovieModel(super.id, super.title, super.posterPath, super.backdropPath,
-      super.genreIds, super.genreNames);
+  MovieModel(super.id, super.title, super.description, super.posterPath,
+      super.backdropPath, super.genreIds, super.genreNames);
 
   factory MovieModel.fromJson(Map<String, dynamic> json) {
     Map<int, String> genreMap = {
@@ -40,6 +40,7 @@ class MovieModel extends MovieEntity {
     return MovieModel(
       json['id'],
       json['title'],
+      json['overview'],
       posterImage,
       backdropPath,
       genreIds,

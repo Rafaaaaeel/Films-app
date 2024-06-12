@@ -1,5 +1,6 @@
 import 'dart:ui';
 import 'package:article_app/src/core/widgets/faded/faded_container.dart';
+import 'package:article_app/src/core/widgets/space/vertical/vertical_space.dart';
 import 'package:article_app/src/features/movies/domain/entities/content_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,36 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
                       child: SizedBox(
                         width: MediaQuery.of(context).size.width,
                         height: 170,
+                        child: Center(
+                          child: Padding(
+                            padding: const EdgeInsets.all(16),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Text(
+                                  data[index].title,
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.white),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  data[index].genreNames.first,
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(color: Colors.grey.shade400),
+                                ),
+                                Text(
+                                  data[index].description,
+                                  maxLines: 2,
+                                  textAlign: TextAlign.center,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(color: Colors.white),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   )
