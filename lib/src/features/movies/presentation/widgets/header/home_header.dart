@@ -1,3 +1,5 @@
+import 'dart:ui';
+import 'package:article_app/src/core/widgets/faded/faded_container.dart';
 import 'package:article_app/src/features/movies/domain/entities/content_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -32,12 +34,25 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
                     child: Row(
                       children: [
                         Text(
-                          data[index].title,
+                          data[index].genreNames.first,
                           maxLines: 3,
                           style: const TextStyle(
-                              fontSize: 32, fontWeight: FontWeight.bold),
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 0,
+                    child: FadedContainer(
+                      start: 0.6,
+                      end: 0.1,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width,
+                        height: 170,
+                      ),
                     ),
                   )
                 ],
@@ -48,9 +63,17 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
         const Positioned(
           top: 70,
           left: 16,
-          child: Text(
-            'Home',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+          child: Row(
+            children: [
+              Text(
+                'Home',
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
+                ),
+              ),
+            ],
           ),
         ),
       ],

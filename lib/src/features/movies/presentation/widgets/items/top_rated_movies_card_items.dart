@@ -10,7 +10,7 @@ class TopRatedMoviesCardItems extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ContentSection(
-      title: 'Top Rated',
+      title: 'Most rated',
       axis: Axis.horizontal,
       hasIndex: true,
       data: _movies,

@@ -50,9 +50,9 @@ class _MoviesPageState extends State<MoviesPage> {
                 children: [
                   HomeHeader(data: state.nowPlaying),
                   const SizedBox(height: 8),
-                  NowPlayingCardItems(state.nowPlaying),
-                  TopRatedMoviesCardItems(state.topRated),
+                  // NowPlayingCardItems(state.nowPlaying),
                   UpcomingMoviesCardItems(state.upcoming),
+                  TopRatedMoviesCardItems(state.topRated),
                   PopularCardItems(state.popular)
                 ],
               );

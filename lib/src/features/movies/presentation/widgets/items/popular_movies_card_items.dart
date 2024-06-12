@@ -12,7 +12,7 @@ class PopularCardItems extends StatelessWidget {
   Widget build(BuildContext context) {
     return ContentSection(
       axis: Axis.vertical,
-      title: 'Popular',
+      title: 'Popular right now',
       hasIndex: false,
       data: _movies,
     );
