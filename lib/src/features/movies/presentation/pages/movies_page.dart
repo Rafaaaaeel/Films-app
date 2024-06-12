@@ -48,7 +48,7 @@ class _MoviesPageState extends State<MoviesPage> {
             if (state is SucceededMoviesState) {
               return Column(
                 children: [
-                  HomeHeader(data: state.nowPlaying[9]),
+                  HomeHeader(data: state.nowPlaying),
                   const SizedBox(height: 8),
                   NowPlayingCardItems(state.nowPlaying),
                   TopRatedMoviesCardItems(state.topRated),
