@@ -1,3 +1,4 @@
+import 'package:article_app/src/core/widgets/space/vertical/vertical_safe_space.dart';
 import 'package:article_app/src/core/widgets/texts/title_text.dart';
 import 'package:article_app/src/features/movies/domain/entities/content_entity.dart';
 import 'package:article_app/src/features/movies/presentation/widgets/cards/horizontal_card.dart';
@@ -27,7 +28,7 @@ class ContentSection<T extends ContentEntity> extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: TitleText(title: title),
         ),
-        const SizedBox(height: 16),
+        const VerticalSafeSpace(),
         SizedBox(
           height: axis == Axis.horizontal
               ? hasIndex
@@ -47,6 +48,7 @@ class ContentSection<T extends ContentEntity> extends StatelessWidget {
             scrollDirection: Axis.horizontal,
           ),
         ),
+        const SizedBox(height: 32)
       ],
     );
   }

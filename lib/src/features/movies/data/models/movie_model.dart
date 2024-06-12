@@ -32,8 +32,18 @@ class MovieModel extends MovieEntity {
             [];
     List<String> genreNames =
         genreIds.map((id) => genreMap[id] ?? 'Unknown').toList();
+    String backdropPath =
+        'https://image.tmdb.org/t/p/original/${json['backdrop_path'] ?? ''}';
+    String posterImage =
+        'https://image.tmdb.org/t/p/original/${json['poster_path'] ?? ''}';
 
-    return MovieModel(json['id'], json['title'], json['poster_path'] ?? '',
-        json['backdrop_path'] ?? '', genreIds, genreNames);
+    return MovieModel(
+      json['id'],
+      json['title'],
+      posterImage,
+      backdropPath,
+      genreIds,
+      genreNames,
+    );
   }
 }

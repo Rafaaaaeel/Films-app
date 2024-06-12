@@ -1,3 +1,5 @@
+import 'package:article_app/src/core/widgets/space/horizontal/horizontal_safe.dart';
+import 'package:article_app/src/core/widgets/space/vertical/vertical_space.dart';
 import 'package:article_app/src/features/movies/domain/entities/content_entity.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +21,7 @@ class HorizontalCard<T extends ContentEntity> extends StatelessWidget {
               width: 170,
               height: 100,
               child: Image.network(
-                'https://image.tmdb.org/t/p/w342/${_movie.backdropPath ?? ""}',
+                _movie.backdropPath!,
                 fit: BoxFit.cover,
               ),
             ),
@@ -35,12 +37,12 @@ class HorizontalCard<T extends ContentEntity> extends StatelessWidget {
                   style: const TextStyle(
                       fontSize: 32, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(width: 8),
+                const HorizontalSpace(),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SizedBox(height: 6),
+                      const VerticalSpace(),
                       Text(
                         _movie.title,
                         overflow: TextOverflow.ellipsis,

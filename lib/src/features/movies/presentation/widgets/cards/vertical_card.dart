@@ -8,13 +8,12 @@ class VerticalCard<T extends ContentEntity> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String url = 'https://image.tmdb.org/t/p/w342/${_movie.posterPath!}';
     return ClipRRect(
       borderRadius: BorderRadius.circular(16),
       child: SizedBox(
         width: 130,
         child: Image.network(
-          url,
+          _movie.posterPath!,
           fit: BoxFit.cover,
         ),
       ),
