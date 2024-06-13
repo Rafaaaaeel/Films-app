@@ -33,7 +33,7 @@ class ContentSection<T extends ContentEntity> extends StatelessWidget {
           height: axis == Axis.horizontal
               ? hasIndex
                   ? 150
-                  : 120
+                  : 130
               : 200,
           child: ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 16),

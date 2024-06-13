@@ -1,3 +1,4 @@
+import 'package:article_app/main.dart';
 import 'package:article_app/src/core/utils/injections/injections.dart';
 import 'package:article_app/src/features/movies/data/repositories/movies_repository_impl.dart';
 import 'package:article_app/src/features/movies/data/sources/remote/movies_channel.dart';
@@ -10,7 +11,12 @@ import 'package:article_app/src/features/movies/presentation/bloc/movies_bloc.da
 
 Future<void> binding() async {
   sl.registerSingleton<MoviesChannel>(MoviesChannel(sl()));
-  sl.registerSingleton<MoviesRepository>(MoviesRepositotyImpl(sl()));
+
+  sl.registerSingleton<MoviesChannelDataSource>(
+    MoviesChannelDataSource(sl(), settings),
+  );
+  sl.registerSingleton<MoviesLocalDataSource>(MoviesLocalDataSource());
+  sl.registerSingleton<MoviesRepository>(MoviesRepositotyImpl(sl(), sl()));
   sl.registerSingleton<NowPlayingMoviesUsecase>(NowPlayingMoviesUsecase(sl()));
   sl.registerSingleton<PopularMoviesUsecase>(PopularMoviesUsecase(sl()));
   sl.registerSingleton<TopRatedMoviesUsecase>(TopRatedMoviesUsecase(sl()));

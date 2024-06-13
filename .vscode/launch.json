@@ -5,21 +5,21 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "films_app",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "films_app (profile mode)",
+            "name": "Films App",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile"
+            "args": [
+                "--dart-define=env=prod", 
+                "--dart-define=API_KEY=edc2152165299261835d73c2a0848d24",
+            ]
         },
         {
-            "name": "films_app (release mode)",
+            "name": "Films App - Mock",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release"
-        }
+            "args": [
+                "--dart-define=env=mock", 
+            ]
+        },
     ]
 }

@@ -1,4 +1,4 @@
-import 'package:article_app/src/core/constants/padding_constants.dart';
+import 'package:article_app/src/core/shared/constants/padding_constants.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalSpace extends StatelessWidget {

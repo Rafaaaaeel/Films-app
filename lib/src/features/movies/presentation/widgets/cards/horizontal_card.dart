@@ -27,7 +27,7 @@ class HorizontalCard<T extends ContentEntity> extends StatelessWidget {
             ),
           ),
           if (index == null)
-            Text(_movie.title)
+            Text(_movie.title, maxLines: 1)
           else
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
