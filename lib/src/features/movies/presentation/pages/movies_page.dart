@@ -3,7 +3,6 @@ import 'package:article_app/src/features/movies/presentation/bloc/movies_bloc.da
 import 'package:article_app/src/features/movies/presentation/bloc/movies_event.dart';
 import 'package:article_app/src/features/movies/presentation/bloc/movies_state.dart';
 import 'package:article_app/src/features/movies/presentation/widgets/header/home_header.dart';
-import 'package:article_app/src/features/movies/presentation/widgets/items/now_playing_movies_card_items.dart';
 import 'package:article_app/src/features/movies/presentation/widgets/items/popular_movies_card_items.dart';
 import 'package:article_app/src/features/movies/presentation/widgets/items/top_rated_movies_card_items.dart';
 import 'package:article_app/src/features/movies/presentation/widgets/items/upcoming_movies_card_items.dart';
@@ -60,7 +59,7 @@ class _MoviesPageState extends State<MoviesPage> {
 
             if (state is FailedMoviesState) {
               return const Center(
-                child: Text('Sorry somethin went wrong please try agaiin...'),
+                child: Text('Sorry something went wrong please try agaiin...'),
               );
             }
             return const Text('data');
