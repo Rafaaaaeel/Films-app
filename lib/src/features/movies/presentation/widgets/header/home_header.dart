@@ -1,4 +1,5 @@
 import 'package:article_app/src/core/widgets/faded/faded_container.dart';
+import 'package:article_app/src/core/widgets/selected_index/selected_index.dart';
 import 'package:article_app/src/core/widgets/space/horizontal/horizontal_safe.dart';
 import 'package:article_app/src/features/movies/domain/entities/content_entity.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,8 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final length = data.length > 8 ? 8 : data.length;
+
     return Stack(
       children: [
         SizedBox(
@@ -18,7 +21,7 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
           child: ListView.builder(
             physics: const PageScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemCount: data.length,
+            itemCount: length,
             itemBuilder: (context, index) => Expanded(
               child: AnimatedOpacity(
                 opacity: 1,
@@ -54,7 +57,7 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
                         end: 0.1,
                         child: SizedBox(
                           width: MediaQuery.of(context).size.width,
-                          height: 170,
+                          height: 190,
                           child: Center(
                             child: Padding(
                               padding:
@@ -147,10 +150,17 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
                     ),
                   ),
                 ],
-              )
+              ),
             ],
           ),
         ),
+        Positioned(
+          bottom: 10,
+          width: MediaQuery.of(context).size.width,
+          child: Center(
+            child: SelectedIndex(numberTotalOfIndexes: length, selected: 2),
+          ),
+        )
       ],
     );
   }
