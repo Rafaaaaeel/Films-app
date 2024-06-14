@@ -1,9 +1,9 @@
 import 'package:article_app/src/core/shared/settings/settings.dart';
 import 'package:article_app/src/core/utils/injections/injections.dart';
-import 'package:article_app/src/features/movies/presentation/pages/movies_page.dart';
+import 'package:article_app/src/features/home/presentation/pages/movies_page.dart';
 import 'package:flutter/material.dart';
 
-Settings get settings {
+Settings get _settings {
   switch (const String.fromEnvironment('env')) {
     case 'mock':
       return MockSettings();
@@ -16,7 +16,7 @@ Settings get settings {
 }
 
 Future<void> main() async {
-  await injections();
+  await injections(_settings);
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),

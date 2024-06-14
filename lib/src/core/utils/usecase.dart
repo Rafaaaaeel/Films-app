@@ -1,4 +1,4 @@
-import 'package:article_app/src/core/network/exceptions/server_exception.dart';
+import 'package:article_app/src/core/shared/exceptions/server_exception.dart';
 import 'package:dartz/dartz.dart';
 
 abstract interface class Usecase<Type, Params> {

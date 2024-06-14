@@ -1,10 +1,11 @@
-import 'package:article_app/src/features/movies/movies_biding.dart';
+import 'package:article_app/src/core/shared/settings/settings.dart';
+import 'package:article_app/src/features/home/home_biding.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
 final sl = GetIt.instance;
 
-Future<void> injections() async {
+Future<void> injections(Settings settings) async {
   Dio dio = Dio();
 
   dio.interceptors.add(LogInterceptor(
@@ -17,5 +18,5 @@ Future<void> injections() async {
   ));
 
   sl.registerSingleton<Dio>(dio);
-  await binding();
+  await binding(settings);
 }
