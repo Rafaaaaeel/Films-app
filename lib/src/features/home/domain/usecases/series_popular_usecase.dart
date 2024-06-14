@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/shared/exceptions/server_exception.dart';
 import 'package:article_app/src/core/utils/usecase.dart';
-import 'package:article_app/src/features/home/domain/entities/serie_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/series/serie_entity.dart';
 import 'package:article_app/src/features/home/domain/repositories/series_repository.dart';
 import 'package:dartz/dartz.dart';
 

@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/widgets/faded/faded_container.dart';
 import 'package:article_app/src/core/widgets/selected_index/selected_index.dart';
-import 'package:article_app/src/features/home/domain/entities/content_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
 import 'package:flutter/material.dart';
 
 class HomeHeader<T extends ContentEntity> extends StatelessWidget {

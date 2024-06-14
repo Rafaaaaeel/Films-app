@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/widgets/space/horizontal/horizontal_safe.dart';
 import 'package:article_app/src/core/widgets/space/vertical/vertical_space.dart';
-import 'package:article_app/src/features/home/domain/entities/content_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
 import 'package:flutter/material.dart';
 
 class HorizontalCard<T extends ContentEntity> extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/shared/exceptions/server_exception.dart';
 import 'package:article_app/src/features/home/data/models/movies_response_model.dart';
-import 'package:article_app/src/features/home/domain/entities/movies_response_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movies_response_entity.dart';
 import 'package:dartz/dartz.dart';
 
 class MoviesLocalDataSource {

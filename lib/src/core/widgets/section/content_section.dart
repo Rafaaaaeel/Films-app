@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/widgets/space/vertical/vertical_safe_space.dart';
 import 'package:article_app/src/core/widgets/texts/title_text.dart';
-import 'package:article_app/src/features/home/domain/entities/content_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
 import 'package:article_app/src/features/home/presentation/widgets/cards/horizontal_card.dart';
 import 'package:article_app/src/features/home/presentation/widgets/cards/vertical_card.dart';
 import 'package:flutter/material.dart';

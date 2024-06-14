@@ -1,5 +1,5 @@
 import 'package:article_app/src/features/home/data/models/movie_model.dart';
-import 'package:article_app/src/features/home/domain/entities/movies_response_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movies_response_entity.dart';
 
 class MoviesResponsModel extends MoviesReponseEntity {
   MoviesResponsModel(

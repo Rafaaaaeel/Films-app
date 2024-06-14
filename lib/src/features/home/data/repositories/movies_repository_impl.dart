@@ -2,8 +2,8 @@ import 'package:article_app/src/core/shared/exceptions/server_exception.dart';
 import 'package:article_app/src/core/shared/settings/settings.dart';
 import 'package:article_app/src/features/home/data/sources/local/movies_local_datasource.dart';
 import 'package:article_app/src/features/home/data/sources/remote/movies_channel_datasource.dart';
-import 'package:article_app/src/features/home/domain/entities/movie_params_entity.dart';
-import 'package:article_app/src/features/home/domain/entities/movies_response_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movie_params_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movies_response_entity.dart';
 import 'package:article_app/src/features/home/domain/repositories/movies_repository.dart';
 import 'package:dartz/dartz.dart';
 

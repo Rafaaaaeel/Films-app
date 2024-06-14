@@ -1,4 +1,4 @@
-import 'package:article_app/src/features/home/domain/entities/movie_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movie_entity.dart';
 import 'package:article_app/src/core/widgets/section/content_section.dart';
 
 import 'package:flutter/material.dart';

@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/shared/constants/network_constants.dart';
-import 'package:article_app/src/features/home/domain/entities/movie_entity.dart';
-import 'package:article_app/src/features/home/domain/entities/movie_params_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movie_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movie_params_entity.dart';
 import 'package:article_app/src/features/home/domain/usecases/now_playing_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/popular_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/series_popular_usecase.dart';

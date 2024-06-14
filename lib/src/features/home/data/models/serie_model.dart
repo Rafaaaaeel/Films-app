@@ -1,4 +1,4 @@
-import 'package:article_app/src/features/home/domain/entities/serie_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/series/serie_entity.dart';
 
 class SerieModel extends SerieEntity {
   SerieModel(

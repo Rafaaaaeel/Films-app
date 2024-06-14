@@ -1,4 +1,4 @@
-import 'package:article_app/src/features/home/domain/entities/movie_entity.dart';
+import 'package:article_app/src/features/home/domain/entities/movies/movie_entity.dart';
 
 class MoviesReponseEntity {
   final int page;
