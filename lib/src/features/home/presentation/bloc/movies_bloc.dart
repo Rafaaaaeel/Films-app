@@ -3,6 +3,7 @@ import 'package:article_app/src/features/home/domain/entities/movie_entity.dart'
 import 'package:article_app/src/features/home/domain/entities/movie_params_entity.dart';
 import 'package:article_app/src/features/home/domain/usecases/now_playing_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/popular_usecase.dart';
+import 'package:article_app/src/features/home/domain/usecases/series_popular_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/top_rated_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/upcoming_movies_usecase.dart';
 import 'package:article_app/src/features/home/presentation/bloc/movies_event.dart';
@@ -14,10 +15,15 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
   final PopularMoviesUsecase _popularMoviesUsecase;
   final UpcomingMoviesUsecase _upcomingMoviesUsecase;
   final TopRatedMoviesUsecase _topRatedMoviesUsecase;
+  final SeriesPopularUsecase _seriesPopularUsecase;
 
-  MoviesBloc(this._nowPlayingMoviesUsecase, this._popularMoviesUsecase,
-      this._upcomingMoviesUsecase, this._topRatedMoviesUsecase)
-      : super(LoadingMoviesState()) {
+  MoviesBloc(
+    this._nowPlayingMoviesUsecase,
+    this._popularMoviesUsecase,
+    this._upcomingMoviesUsecase,
+    this._topRatedMoviesUsecase,
+    this._seriesPopularUsecase,
+  ) : super(LoadingMoviesState()) {
     on<OnFetchingMoviesEvent>(_onFetchingMoviesEvent);
   }
 
@@ -39,10 +45,13 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       const MovieParamasEntity(topRated),
     );
 
+    final seriesPopular = await _seriesPopularUsecase.call(null);
+
     List<MovieEntity> nowPlayingResults = [];
     List<MovieEntity> popularResults = [];
     List<MovieEntity> upcomingResults = [];
     List<MovieEntity> topRatedResults = [];
+    Series seriesPopularResults = [];
 
     nowPlayingMovies.fold(
       (failure) {
@@ -88,12 +97,24 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       },
     );
 
+    seriesPopular.fold(
+      (failure) {
+        emmiter(
+          FailedMoviesState(failure.message!),
+        );
+      },
+      (data) {
+        seriesPopularResults = data;
+      },
+    );
+
     emmiter(
       SucceededMoviesState(
         nowPlayingResults,
         popularResults,
         upcomingResults,
         topRatedResults,
+        seriesPopularResults,
       ),
     );
   }

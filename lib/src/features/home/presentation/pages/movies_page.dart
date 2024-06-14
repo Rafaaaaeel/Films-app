@@ -17,7 +17,7 @@ class MoviesPage extends StatefulWidget {
 }
 
 class _MoviesPageState extends State<MoviesPage> {
-  final MoviesBloc _bloc = MoviesBloc(sl(), sl(), sl(), sl());
+  final MoviesBloc _bloc = MoviesBloc(sl(), sl(), sl(), sl(), sl());
 
   @override
   void initState() {
