@@ -4,6 +4,7 @@ import 'package:article_app/src/features/home/presentation/bloc/movies_event.dar
 import 'package:article_app/src/features/home/presentation/bloc/movies_state.dart';
 import 'package:article_app/src/features/home/presentation/widgets/header/home_header.dart';
 import 'package:article_app/src/features/home/presentation/widgets/items/popular_movies_card_items.dart';
+import 'package:article_app/src/features/home/presentation/widgets/items/popular_series_card_items.dart';
 import 'package:article_app/src/features/home/presentation/widgets/items/top_rated_movies_card_items.dart';
 import 'package:article_app/src/features/home/presentation/widgets/items/upcoming_movies_card_items.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -51,6 +52,7 @@ class _MoviesPageState extends State<MoviesPage> {
                   const SizedBox(height: 8),
                   UpcomingMoviesCardItems(state.upcoming),
                   TopRatedMoviesCardItems(state.topRated),
+                  PopularSeriesCardItems(state.poularSeries),
                   PopularCardItems(state.popular)
                 ],
               );

@@ -11,7 +11,7 @@ class SerieModel extends SerieEntity {
     super.genreNames,
   );
 
-   factory SerieModel.fromJson(Map<String, dynamic> json) {
+  factory SerieModel.fromJson(Map<String, dynamic> json) {
     Map<int, String> genreMap = {
       28: 'Action',
       12: 'Adventure',
@@ -46,7 +46,7 @@ class SerieModel extends SerieEntity {
 
     return SerieModel(
       json['id'],
-      json['title'],
+      json['name'],
       json['overview'],
       posterImage,
       backdropPath,

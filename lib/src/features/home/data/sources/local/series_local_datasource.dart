@@ -1,6 +1,5 @@
 import 'package:article_app/src/core/shared/exceptions/server_exception.dart';
 import 'package:article_app/src/features/home/data/models/series_response_model.dart';
-import 'package:article_app/src/features/home/domain/entities/serie_response_entity.dart';
 import 'package:dartz/dartz.dart';
 
 class SeriesLocalDatasource {
