@@ -1,4 +1,4 @@
-import 'package:article_app/src/features/home/data/models/serie_model.dart';
+import 'package:article_app/src/features/home/data/models/series/serie_model.dart';
 import 'package:article_app/src/features/home/domain/entities/series/serie_response_entity.dart';
 
 class SeriesResponseModel extends SerieResponseEntity {

@@ -1,13 +1,14 @@
+import 'package:article_app/src/core/shared/database/tables/watch_later_table.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
-class DatabaseLocalService {
-  static final DatabaseLocalService _instance = DatabaseLocalService._();
+class DatabaseService {
+  static final DatabaseService _instance = DatabaseService._();
   static Database? _database;
 
-  DatabaseLocalService._();
+  DatabaseService._();
 
-  factory DatabaseLocalService() {
+  factory DatabaseService() {
     return _instance;
   }
 
@@ -20,7 +21,7 @@ class DatabaseLocalService {
   }
 
   Future<String> get fullPath async {
-    const name = 'app_database.dbb';
+    const name = 'app_database.db';
     final path = await getDatabasesPath();
     return join(path, name);
   }
@@ -37,16 +38,6 @@ class DatabaseLocalService {
   }
 
   Future<void> _onCreate(Database db, int version) async {
-    await db.execute('''
-      CREATE TABLE watch_later (
-        id INTEGER PRIMARY KEY,
-        title TEXT,
-        description TEXT,
-        posterPath TEXT,
-        backdropPath TEXT,
-        genreIds TEXT,
-        genreNames TEXT
-      )
-    ''');
+    await WatchLaterTable().createTable(db);
   }
 }
