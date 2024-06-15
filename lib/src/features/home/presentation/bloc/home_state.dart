@@ -1,13 +1,13 @@
 import 'package:article_app/src/features/home/domain/usecases/now_playing_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/series_popular_usecase.dart';
 
-abstract class MoviesState {
-  const MoviesState();
+abstract class HomesState {
+  const HomesState();
 }
 
-class LoadingMoviesState extends MoviesState {}
+class LoadingMoviesState extends HomesState {}
 
-class SucceededMoviesState extends MoviesState {
+class SucceededMoviesState extends HomesState {
   final Movies nowPlaying;
   final Movies popular;
   final Movies upcoming;
@@ -23,8 +23,10 @@ class SucceededMoviesState extends MoviesState {
   );
 }
 
-class FailedMoviesState extends MoviesState {
+class FailedMoviesState extends HomesState {
   final String message;
 
   const FailedMoviesState(this.message);
 }
+
+class SuccessAddingToWatchListState extends HomesState {}

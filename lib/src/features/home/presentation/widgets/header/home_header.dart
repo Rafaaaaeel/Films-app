@@ -1,23 +1,58 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:article_app/src/core/widgets/faded/faded_container.dart';
 import 'package:article_app/src/core/widgets/selected_index/selected_index.dart';
 import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
-import 'package:flutter/material.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home_bloc.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home_event.dart';
 
-class HomeHeader<T extends ContentEntity> extends StatelessWidget {
+class HomeHeader<T extends ContentEntity> extends StatefulWidget {
   final List<T> data;
 
   const HomeHeader({required this.data, super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final length = data.length > 8 ? 8 : data.length;
+  State<HomeHeader> createState() => _HomeHeaderState();
+}
 
+class _HomeHeaderState extends State<HomeHeader> {
+  final ScrollController _scrollController = ScrollController();
+  int _currentIndex = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _scrollListener() {
+    setState(
+      () {
+        _currentIndex =
+            (_scrollController.offset / MediaQuery.of(context).size.width)
+                .round();
+      },
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final data = widget.data;
+    final length = data.length > 8 ? 8 : data.length;
+    print(_currentIndex);
     return Stack(
       children: [
         SizedBox(
           width: MediaQuery.of(context).size.width,
           height: 600,
           child: ListView.builder(
+            controller: _scrollController,
             physics: const PageScrollPhysics(),
             scrollDirection: Axis.horizontal,
             itemCount: length,
@@ -124,9 +159,13 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
               ),
               Row(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: const SizedBox(
+                  GestureDetector(
+                    onTap: () => BlocProvider.of<HomeBloc>(context).add(
+                      AddToWatchListEvent(data[_currentIndex]),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: const SizedBox(
                         width: 35,
                         height: 35,
                         child: FadedContainer(
@@ -135,7 +174,9 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
                           child: Center(
                             child: Icon(Icons.add),
                           ),
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                   const SizedBox(width: 16),
                   ClipRRect(
@@ -158,9 +199,12 @@ class HomeHeader<T extends ContentEntity> extends StatelessWidget {
           bottom: 10,
           width: MediaQuery.of(context).size.width,
           child: Center(
-            child: SelectedIndex(numberTotalOfIndexes: length, selected: 2),
+            child: SelectedIndex(
+              numberTotalOfIndexes: length,
+              selected: _currentIndex,
+            ),
           ),
-        )
+        ),
       ],
     );
   }
