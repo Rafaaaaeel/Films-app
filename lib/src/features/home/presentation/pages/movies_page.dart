@@ -1,9 +1,8 @@
 import 'package:article_app/src/core/utils/injections/injections.dart';
-import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
-import 'package:article_app/src/features/home/domain/entities/movies/movie_entity.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_bloc.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_event.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_state.dart';
+import 'package:article_app/src/features/home/domain/usecases/remove_show_from_watch_list_usecase.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_bloc.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_event.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_state.dart';
 import 'package:article_app/src/features/home/presentation/widgets/header/home_header.dart';
 import 'package:article_app/src/features/home/presentation/widgets/items/popular_movies_card_items.dart';
 import 'package:article_app/src/features/home/presentation/widgets/items/popular_series_card_items.dart';

@@ -16,11 +16,10 @@ import 'package:article_app/src/features/home/domain/repositories/watch_later_re
 import 'package:article_app/src/features/home/domain/usecases/add_show_to_watch_list_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/now_playing_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/popular_usecase.dart';
-import 'package:article_app/src/features/home/domain/usecases/remove_show_from_watch_list_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/series_popular_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/top_rated_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/upcoming_movies_usecase.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_bloc.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_bloc.dart';
 
 Future<void> binding(Settings settings) async {
   sl.registerSingleton<MoviesChannel>(MoviesChannel(sl()));

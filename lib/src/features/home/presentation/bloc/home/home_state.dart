@@ -28,5 +28,3 @@ class FailedMoviesState extends HomesState {
 
   const FailedMoviesState(this.message);
 }
-
-class SuccessAddingToWatchListState extends HomesState {}

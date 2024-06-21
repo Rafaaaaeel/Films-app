@@ -1,10 +1,10 @@
+import 'package:article_app/src/features/watch_later/presentation/bloc/watch_later_event.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:article_app/src/core/widgets/faded/faded_container.dart';
 import 'package:article_app/src/core/widgets/selected_index/selected_index.dart';
 import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_bloc.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_event.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_bloc.dart';
 
 class HomeHeader<T extends ContentEntity> extends StatefulWidget {
   final List<T> data;
@@ -45,7 +45,7 @@ class _HomeHeaderState extends State<HomeHeader> {
   Widget build(BuildContext context) {
     final data = widget.data;
     final length = data.length > 8 ? 8 : data.length;
-    print(_currentIndex);
+
     return Stack(
       children: [
         SizedBox(
@@ -160,9 +160,9 @@ class _HomeHeaderState extends State<HomeHeader> {
               Row(
                 children: [
                   GestureDetector(
-                    onTap: () => BlocProvider.of<HomeBloc>(context).add(
-                      AddToWatchListEvent(data[_currentIndex]),
-                    ),
+                    // onTap: () => BlocProvider.of<HomeBloc>(context).add(
+                    //   AddToWatchListEvent(data[_currentIndex]),
+                    // ),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: const SizedBox(

@@ -4,12 +4,11 @@ import 'package:article_app/src/features/home/domain/entities/movies/movie_param
 import 'package:article_app/src/features/home/domain/usecases/add_show_to_watch_list_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/now_playing_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/popular_usecase.dart';
-import 'package:article_app/src/features/home/domain/usecases/remove_show_from_watch_list_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/series_popular_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/top_rated_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/upcoming_movies_usecase.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_event.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home_state.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_event.dart';
+import 'package:article_app/src/features/home/presentation/bloc/home/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomesState> {
@@ -30,7 +29,6 @@ class HomeBloc extends Bloc<HomeEvent, HomesState> {
     this._addShowToWatchListUsecase,
   ) : super(LoadingMoviesState()) {
     on<OnFetchingMoviesEvent>(_onFetchingMoviesEvent);
-    on<AddToWatchListEvent>(_onAddToWatchListEvent);
   }
 
   Future<void> _onFetchingMoviesEvent(
@@ -125,11 +123,11 @@ class HomeBloc extends Bloc<HomeEvent, HomesState> {
     );
   }
 
-  Future<void> _onAddToWatchListEvent(
-      AddToWatchListEvent event, Emitter<HomesState> emitter) async {
-    await _addShowToWatchListUsecase.call(event.show);
+  // Future<void> _onAddToWatchListEvent(
+  //     AddToWatchListEvent event, Emitter<HomesState> emitter) async {
+  //   await _addShowToWatchListUsecase.call(event.show);
 
-    emitter(SuccessAddingToWatchListState());
-  }
+  //   emitter(SuccessAddingToWatchListState());
+  // }
 
 }
