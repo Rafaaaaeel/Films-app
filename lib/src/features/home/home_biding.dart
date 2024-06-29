@@ -66,7 +66,6 @@ Future<void> binding(Settings settings) async {
       sl(),
       sl(),
       sl(),
-      sl(),
     ),
   );
 }

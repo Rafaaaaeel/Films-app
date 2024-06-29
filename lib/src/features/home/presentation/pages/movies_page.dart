@@ -1,5 +1,4 @@
 import 'package:article_app/src/core/utils/injections/injections.dart';
-import 'package:article_app/src/features/home/domain/usecases/remove_show_from_watch_list_usecase.dart';
 import 'package:article_app/src/features/home/presentation/bloc/home/home_bloc.dart';
 import 'package:article_app/src/features/home/presentation/bloc/home/home_event.dart';
 import 'package:article_app/src/features/home/presentation/bloc/home/home_state.dart';
@@ -17,8 +16,13 @@ class MoviesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeBloc(sl(), sl(), sl(), sl(), sl(), sl())
-        ..add(OnFetchingMoviesEvent()),
+      create: (context) => HomeBloc(
+        sl(),
+        sl(),
+        sl(),
+        sl(),
+        sl(),
+      )..add(OnFetchingMoviesEvent()),
       child: const MoviesPageContent(),
     );
   }

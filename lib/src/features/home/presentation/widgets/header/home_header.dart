@@ -1,10 +1,7 @@
-import 'package:article_app/src/features/watch_later/presentation/bloc/watch_later_event.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:article_app/src/core/widgets/faded/faded_container.dart';
 import 'package:article_app/src/core/widgets/selected_index/selected_index.dart';
 import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home/home_bloc.dart';
 
 class HomeHeader<T extends ContentEntity> extends StatefulWidget {
   final List<T> data;
