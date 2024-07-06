@@ -1,6 +1,6 @@
 import 'package:article_app/src/core/shared/settings/settings.dart';
 import 'package:article_app/src/core/utils/injections/injections.dart';
-import 'package:article_app/src/features/home/presentation/pages/movies_page.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/home_page.dart';
 import 'package:flutter/material.dart';
 
 Settings get _settings {
@@ -20,7 +20,7 @@ Future<void> main() async {
   runApp(
     MaterialApp(
       theme: ThemeData.dark(),
-      home: const MoviesPage(),
+      home: const HomePage(),
     ),
   );
 }

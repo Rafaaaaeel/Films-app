@@ -6,8 +6,8 @@ import 'package:article_app/src/features/home/domain/usecases/popular_usecase.da
 import 'package:article_app/src/features/home/domain/usecases/series_popular_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/top_rated_movies_usecase.dart';
 import 'package:article_app/src/features/home/domain/usecases/upcoming_movies_usecase.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home/home_event.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home/home_state.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/bloc/home/home_event.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/bloc/home/home_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomesState> {
@@ -119,11 +119,5 @@ class HomeBloc extends Bloc<HomeEvent, HomesState> {
     );
   }
 
-  // Future<void> _onAddToWatchListEvent(
-  //     AddToWatchListEvent event, Emitter<HomesState> emitter) async {
-  //   await _addShowToWatchListUsecase.call(event.show);
-
-  //   emitter(SuccessAddingToWatchListState());
-  // }
 
 }

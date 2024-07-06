@@ -1,17 +1,17 @@
 import 'package:article_app/src/core/utils/injections/injections.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home/home_bloc.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home/home_event.dart';
-import 'package:article_app/src/features/home/presentation/bloc/home/home_state.dart';
-import 'package:article_app/src/features/home/presentation/widgets/header/home_header.dart';
-import 'package:article_app/src/features/home/presentation/widgets/items/popular_movies_card_items.dart';
-import 'package:article_app/src/features/home/presentation/widgets/items/popular_series_card_items.dart';
-import 'package:article_app/src/features/home/presentation/widgets/items/top_rated_movies_card_items.dart';
-import 'package:article_app/src/features/home/presentation/widgets/items/upcoming_movies_card_items.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/bloc/home/home_bloc.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/bloc/home/home_event.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/bloc/home/home_state.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/widgets/header/home_header.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/widgets/items/popular_movies_card_items.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/widgets/items/popular_series_card_items.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/widgets/items/top_rated_movies_card_items.dart';
+import 'package:article_app/src/features/home/presentation/pages/home_page/widgets/items/upcoming_movies_card_items.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/material.dart';
 
-class MoviesPage extends StatelessWidget {
-  const MoviesPage({super.key});
+class HomePage extends StatelessWidget {
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -23,13 +23,13 @@ class MoviesPage extends StatelessWidget {
         sl(),
         sl(),
       )..add(OnFetchingMoviesEvent()),
-      child: const MoviesPageContent(),
+      child: const HomePageContent(),
     );
   }
 }
 
-class MoviesPageContent extends StatelessWidget {
-  const MoviesPageContent({super.key});
+class HomePageContent extends StatelessWidget {
+  const HomePageContent({super.key});
 
   @override
   Widget build(BuildContext context) {
