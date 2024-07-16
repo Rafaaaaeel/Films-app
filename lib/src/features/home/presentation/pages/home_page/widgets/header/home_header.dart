@@ -4,9 +4,11 @@ import 'package:article_app/src/core/widgets/selected_index/selected_index.dart'
 import 'package:article_app/src/features/home/domain/entities/content/content_entity.dart';
 
 class HomeHeader<T extends ContentEntity> extends StatefulWidget {
-  final List<T> data;
+  final List<T> _data;
+  final int _length;
+  final int Function(double, double) getIndex;
 
-  const HomeHeader({required this.data, super.key});
+  const HomeHeader(this._data, this._length, this.getIndex, {super.key});
 
   @override
   State<HomeHeader> createState() => _HomeHeaderState();
@@ -31,18 +33,16 @@ class _HomeHeaderState extends State<HomeHeader> {
   void _scrollListener() {
     setState(
       () {
-        _currentIndex =
-            (_scrollController.offset / MediaQuery.of(context).size.width)
-                .round();
+        _currentIndex = widget.getIndex(
+          _scrollController.offset,
+          MediaQuery.of(context).size.width,
+        );
       },
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    final data = widget.data;
-    final length = data.length > 8 ? 8 : data.length;
-
     return Stack(
       children: [
         SizedBox(
@@ -52,14 +52,14 @@ class _HomeHeaderState extends State<HomeHeader> {
             controller: _scrollController,
             physics: const PageScrollPhysics(),
             scrollDirection: Axis.horizontal,
-            itemCount: length,
+            itemCount: widget._length,
             itemBuilder: (context, index) => Column(
               children: [
                 Expanded(
                   child: Stack(
                     children: [
                       Image.network(
-                        data[index].posterPath!,
+                        widget._data[index].posterPath!,
                         width: MediaQuery.of(context).size.width,
                         height: MediaQuery.of(context).size.height,
                         fit: BoxFit.cover,
@@ -70,7 +70,7 @@ class _HomeHeaderState extends State<HomeHeader> {
                         child: Row(
                           children: [
                             Text(
-                              data[index].genreNames.first,
+                              widget._data[index].genreNames.first,
                               maxLines: 3,
                               style: const TextStyle(
                                 fontSize: 32,
@@ -96,7 +96,7 @@ class _HomeHeaderState extends State<HomeHeader> {
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Text(
-                                      data[index].title,
+                                      widget._data[index].title,
                                       style: const TextStyle(
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold,
@@ -104,13 +104,13 @@ class _HomeHeaderState extends State<HomeHeader> {
                                       textAlign: TextAlign.center,
                                     ),
                                     Text(
-                                      data[index].genreNames.first,
+                                      widget._data[index].genreNames.first,
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                           color: Colors.grey.shade400),
                                     ),
                                     Text(
-                                      data[index].description,
+                                      widget._data[index].description,
                                       maxLines: 2,
                                       textAlign: TextAlign.center,
                                       overflow: TextOverflow.ellipsis,
@@ -197,7 +197,7 @@ class _HomeHeaderState extends State<HomeHeader> {
           width: MediaQuery.of(context).size.width,
           child: Center(
             child: SelectedIndex(
-              numberTotalOfIndexes: length,
+              numberTotalOfIndexes: widget._length,
               selected: _currentIndex,
             ),
           ),
